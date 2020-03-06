@@ -119,19 +119,16 @@
 	<!-- <figure hidden><figcaption class="txt"></figcaption></figure> -->
 <style>
 	.qs, .as {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: center;
 		/* width: 100%; */
 	}
 	.qs {
-		padding: 2rem 0;
 		counter-reset: qnum;
+		padding: 1rem;
 	}
 	.as {
 		position: sticky;
 		bottom: 1rem;
+		padding: 0;
 	}
 	.as::before {
     content: '';

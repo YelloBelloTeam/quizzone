@@ -56,21 +56,15 @@
 	<!-- <figure hidden><figcaption class="txt"></figcaption></figure> -->
 <style>
 	.qs, .as {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: center;
 		/* width: 100%; */
-	}
-	.qs, .as {
-		padding: 2rem 0;
+		padding: 1rem;
 	}
 	.qs {
-		counter-reset: qnum;
 		position: sticky;
 		bottom: 1rem;
 	}
 	.as {
+		counter-reset: qnum;
 	}
 	.qs::before {
     content: '';
