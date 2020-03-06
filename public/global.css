@@ -33,9 +33,17 @@ header, footer {
 footer {
 	/* height: 10%; */
 }
-header, main, footer {
+
+header {
+	scroll-snap-align: start;
+}
+main {
 	scroll-snap-align: center;
 }
+footer {
+	scroll-snap-align: end;
+}
+
 main {
 	/* min-height: 100vh; */
 	background: var(--main-bg);
