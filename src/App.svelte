@@ -33,7 +33,7 @@
 
 </header>
 
-<main id="questions">
+<main id="slides">
 	<svelte:component this={selected.qtype} idx={selected.idx} />
 	<!-- <Felelet idx={1} />
 	<br>

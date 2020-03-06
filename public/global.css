@@ -27,7 +27,7 @@ body {
 
 header, footer {
 	background: white;
-	position: sticky;
+	/* position: sticky; */
 	padding: 0 1rem;
 }
 footer {

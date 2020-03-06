@@ -35,9 +35,6 @@
 
 	<h2>Feleletválasztó</h2>
 	<div id="{id}">
-		<div class="qs">
-			<h1>Melyiküknek nincs PhD-fokozata?</h1>
-		</div>
 		<div class="as">
 			<figure on:click={_focusFig}>
 				<img src="/images/city.jpeg" alt="A">
@@ -52,6 +49,9 @@
 				<img src="/images/nature.jpeg" alt="D">
 			</figure>
 		</div>
+		<div class="qs">
+			<h1>Melyiküknek nincs PhD-fokozata?</h1>
+		</div>
 	</div>
 	<!-- <figure hidden><figcaption class="txt"></figcaption></figure> -->
 <style>
@@ -65,12 +65,12 @@
 	.qs {
 		padding: 2rem 0;
 		counter-reset: qnum;
-	}
-	.as {
 		position: sticky;
 		bottom: 1rem;
 	}
-	.as::before {
+	.as {
+	}
+	.qs::before {
     content: '';
     position: absolute;
     width: 100%; 
