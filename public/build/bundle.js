@@ -410,7 +410,7 @@ var app = (function () {
     const file = "src/qtypes/parosito.svelte";
 
     function create_fragment(ctx) {
-    	let h2;
+    	let h1;
     	let t1;
     	let div2;
     	let div0;
@@ -448,8 +448,8 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			h2 = element("h2");
-    			h2.textContent = "Párosító";
+    			h1 = element("h1");
+    			h1.textContent = "Párosító";
     			t1 = space();
     			div2 = element("div");
     			div0 = element("div");
@@ -483,7 +483,7 @@ var app = (function () {
     			t14 = space();
     			figcaption4 = element("figcaption");
     			figcaption4.textContent = "E) CITY";
-    			add_location(h2, file, 91, 1, 2538);
+    			add_location(h1, file, 91, 1, 2538);
     			if (img0.src !== (img0_src_value = "/images/city.jpeg")) attr_dev(img0, "src", img0_src_value);
     			attr_dev(img0, "alt", "1");
     			add_location(img0, file, 95, 4, 2720);
@@ -557,7 +557,7 @@ var app = (function () {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, h2, anchor);
+    			insert_dev(target, h1, anchor);
     			insert_dev(target, t1, anchor);
     			insert_dev(target, div2, anchor);
     			append_dev(div2, div0);
@@ -591,7 +591,7 @@ var app = (function () {
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(h2);
+    			if (detaching) detach_dev(h1);
     			if (detaching) detach_dev(t1);
     			if (detaching) detach_dev(div2);
     			run_all(dispose);
@@ -752,7 +752,7 @@ var app = (function () {
     const file$1 = "src/qtypes/felelet.svelte";
 
     function create_fragment$1(ctx) {
-    	let h2;
+    	let h1;
     	let t1;
     	let div2;
     	let div0;
@@ -773,13 +773,13 @@ var app = (function () {
     	let img3_src_value;
     	let t5;
     	let div1;
-    	let h1;
+    	let h2;
     	let dispose;
 
     	const block = {
     		c: function create() {
-    			h2 = element("h2");
-    			h2.textContent = "Feleletválasztó";
+    			h1 = element("h1");
+    			h1.textContent = "Feleletválasztó";
     			t1 = space();
     			div2 = element("div");
     			div0 = element("div");
@@ -796,33 +796,33 @@ var app = (function () {
     			img3 = element("img");
     			t5 = space();
     			div1 = element("div");
-    			h1 = element("h1");
-    			h1.textContent = "Melyiküknek nincs PhD-fokozata?";
-    			add_location(h2, file$1, 35, 1, 815);
+    			h2 = element("h2");
+    			h2.textContent = "Melyiküknek nincs PhD-fokozata?";
+    			add_location(h1, file$1, 35, 1, 815);
     			if (img0.src !== (img0_src_value = "/images/city.jpeg")) attr_dev(img0, "src", img0_src_value);
     			attr_dev(img0, "alt", "A");
     			add_location(img0, file$1, 39, 4, 913);
-    			attr_dev(figure0, "class", "svelte-1rtolpi");
+    			attr_dev(figure0, "class", "svelte-1h8u7cy");
     			add_location(figure0, file$1, 38, 3, 879);
     			if (img1.src !== (img1_src_value = "/images/transport.jpeg")) attr_dev(img1, "src", img1_src_value);
     			attr_dev(img1, "alt", "B");
     			add_location(img1, file$1, 42, 4, 1001);
-    			attr_dev(figure1, "class", "svelte-1rtolpi");
+    			attr_dev(figure1, "class", "svelte-1h8u7cy");
     			add_location(figure1, file$1, 41, 3, 967);
     			if (img2.src !== (img2_src_value = "/images/animals.jpeg")) attr_dev(img2, "src", img2_src_value);
     			attr_dev(img2, "alt", "C");
     			add_location(img2, file$1, 45, 4, 1094);
-    			attr_dev(figure2, "class", "svelte-1rtolpi");
+    			attr_dev(figure2, "class", "svelte-1h8u7cy");
     			add_location(figure2, file$1, 44, 3, 1060);
     			if (img3.src !== (img3_src_value = "/images/nature.jpeg")) attr_dev(img3, "src", img3_src_value);
     			attr_dev(img3, "alt", "D");
     			add_location(img3, file$1, 48, 4, 1185);
-    			attr_dev(figure3, "class", "svelte-1rtolpi");
+    			attr_dev(figure3, "class", "svelte-1h8u7cy");
     			add_location(figure3, file$1, 47, 3, 1151);
-    			attr_dev(div0, "class", "as svelte-1rtolpi");
+    			attr_dev(div0, "class", "as svelte-1h8u7cy");
     			add_location(div0, file$1, 37, 2, 859);
-    			add_location(h1, file$1, 52, 3, 1269);
-    			attr_dev(div1, "class", "qs svelte-1rtolpi");
+    			add_location(h2, file$1, 52, 3, 1269);
+    			attr_dev(div1, "class", "qs svelte-1h8u7cy");
     			add_location(div1, file$1, 51, 2, 1249);
     			attr_dev(div2, "id", /*id*/ ctx[0]);
     			add_location(div2, file$1, 36, 1, 841);
@@ -838,7 +838,7 @@ var app = (function () {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, h2, anchor);
+    			insert_dev(target, h1, anchor);
     			insert_dev(target, t1, anchor);
     			insert_dev(target, div2, anchor);
     			append_dev(div2, div0);
@@ -855,13 +855,13 @@ var app = (function () {
     			append_dev(figure3, img3);
     			append_dev(div2, t5);
     			append_dev(div2, div1);
-    			append_dev(div1, h1);
+    			append_dev(div1, h2);
     		},
     		p: noop,
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(h2);
+    			if (detaching) detach_dev(h1);
     			if (detaching) detach_dev(t1);
     			if (detaching) detach_dev(div2);
     			run_all(dispose);

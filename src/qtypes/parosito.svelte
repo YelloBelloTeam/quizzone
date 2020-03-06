@@ -89,7 +89,7 @@
 
 </script>
 
-	<h2>Párosító</h2>
+	<h1>Párosító</h1>
 	<div id="{id}" on:drop={_drop} on:dragstart={_dragstart} on:dragover={_dragover}>
 		<div class="qs" on:click|self={_blurFig}>
 			<figure on:click={_focusFig}>

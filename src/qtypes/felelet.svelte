@@ -33,7 +33,7 @@
 
 </script>
 
-	<h2>Feleletválasztó</h2>
+	<h1>Feleletválasztó</h1>
 	<div id="{id}">
 		<div class="as">
 			<figure on:click={_focusFig}>
@@ -50,7 +50,7 @@
 			</figure>
 		</div>
 		<div class="qs">
-			<h1>Melyiküknek nincs PhD-fokozata?</h1>
+			<h2>Melyiküknek nincs PhD-fokozata?</h2>
 		</div>
 	</div>
 	<!-- <figure hidden><figcaption class="txt"></figcaption></figure> -->
@@ -62,8 +62,10 @@
 		justify-content: center;
 		/* width: 100%; */
 	}
-	.qs {
+	.qs, .as {
 		padding: 2rem 0;
+	}
+	.qs {
 		counter-reset: qnum;
 		position: sticky;
 		bottom: 1rem;
@@ -74,8 +76,9 @@
     content: '';
     position: absolute;
     width: 100%; 
-    height: 100%;  
-    opacity: .75; 
+    bottom: 0;
+		top: 0;
+		opacity: .75; 
     z-index: -1;
     background-color: var(--theme-color, orange);
 	}

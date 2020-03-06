@@ -22,7 +22,7 @@ body {
 	font-size: 1.2em;
 	line-height: 1.5;
 	margin: 0;
-	/* scroll-snap-type: y proximity; */
+	scroll-snap-type: y proximity;
 }
 
 header, footer {
@@ -33,9 +33,11 @@ header, footer {
 footer {
 	/* height: 10%; */
 }
+header, main, footer {
+	scroll-snap-align: center;
+}
 main {
-	/* scroll-snap-align: start; */
-	min-height: 100vh;
+	/* min-height: 100vh; */
 	background: var(--main-bg);
 	color: var(--main-txt);
 	/* padding: 4rem 0 4rem; */
@@ -46,11 +48,18 @@ main img {
 	display: block;
 	width: 100%;
 }
-main h2 {
+main h1 {
 	color: var(--theme-color);
 	text-transform: uppercase;
-	font-weight: 300;
+	font-weight: 200;
+	text-align: center;
+	outline-style: dotted;
+	outline-offset: -10px;
 }
+main h2 {
+	margin: 0;
+}
+
 
 #txt-1 { order: 1; }
 #txt-2 { order: 2; }
