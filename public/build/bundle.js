@@ -49,6 +49,9 @@ var app = (function () {
     function space() {
         return text(' ');
     }
+    function empty() {
+        return text('');
+    }
     function listen(node, event, handler, options) {
         node.addEventListener(event, handler, options);
         return () => node.removeEventListener(event, handler, options);
@@ -425,14 +428,16 @@ var app = (function () {
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[16] = list[i];
+    	child_ctx[18] = i;
     	return child_ctx;
     }
 
-    // (99:3) {#each qs as q}
+    // (99:3) {#each qs as q, i}
     function create_each_block_1(ctx) {
     	let figure;
     	let img;
     	let img_src_value;
+    	let img_alt_value;
     	let t;
     	let dispose;
 
@@ -442,10 +447,10 @@ var app = (function () {
     			img = element("img");
     			t = space();
     			if (img.src !== (img_src_value = /*q*/ ctx[16])) attr_dev(img, "src", img_src_value);
-    			attr_dev(img, "alt", "q");
-    			add_location(img, file, 100, 4, 2793);
-    			attr_dev(figure, "class", "svelte-1v1gtck");
-    			add_location(figure, file, 99, 3, 2759);
+    			attr_dev(img, "alt", img_alt_value = "q" + /*i*/ ctx[18]);
+    			add_location(img, file, 100, 4, 2794);
+    			attr_dev(figure, "class", "svelte-s9kree");
+    			add_location(figure, file, 99, 3, 2760);
     			dispose = listen_dev(figure, "click", /*_focusFig*/ ctx[4], false, false, false);
     		},
     		m: function mount(target, anchor) {
@@ -468,7 +473,7 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(99:3) {#each qs as q}",
+    		source: "(99:3) {#each qs as q, i}",
     		ctx
     	});
 
@@ -489,8 +494,8 @@ var app = (function () {
     			t = text(t_value);
     			attr_dev(figcaption, "id", figcaption_id_value = /*a*/ ctx[13]);
     			attr_dev(figcaption, "draggable", "true");
-    			attr_dev(figcaption, "class", "svelte-1v1gtck");
-    			add_location(figcaption, file, 106, 3, 2891);
+    			attr_dev(figcaption, "class", "svelte-s9kree");
+    			add_location(figcaption, file, 106, 3, 2893);
     			dispose = listen_dev(figcaption, "click", /*_moveTxt*/ ctx[6], false, false, false);
     		},
     		m: function mount(target, anchor) {
@@ -564,10 +569,10 @@ var app = (function () {
     			}
 
     			add_location(h1, file, 95, 1, 2594);
-    			attr_dev(div0, "class", "qs svelte-1v1gtck");
-    			add_location(div0, file, 97, 2, 2695);
-    			attr_dev(div1, "class", "as svelte-1v1gtck");
-    			add_location(div1, file, 104, 2, 2852);
+    			attr_dev(div0, "class", "qs svelte-s9kree");
+    			add_location(div0, file, 97, 2, 2693);
+    			attr_dev(div1, "class", "as svelte-s9kree");
+    			add_location(div1, file, 104, 2, 2854);
     			attr_dev(div2, "id", /*id*/ ctx[3]);
     			add_location(div2, file, 96, 1, 2611);
 
@@ -857,15 +862,64 @@ var app = (function () {
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[9] = list[i];
+    	child_ctx[10] = list[i];
+    	child_ctx[12] = i;
     	return child_ctx;
     }
 
-    // (43:3) {#each as as a}
-    function create_each_block$1(ctx) {
+    // (59:4) {:else}
+    function create_else_block(ctx) {
+    	let p;
+    	let t0_value = String.fromCharCode(65 + /*i*/ ctx[12]) + "";
+    	let t0;
+    	let t1;
+    	let t2_value = /*a*/ ctx[10] + "";
+    	let t2;
+    	let p_alt_value;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			p = element("p");
+    			t0 = text(t0_value);
+    			t1 = text(") ");
+    			t2 = text(t2_value);
+    			attr_dev(p, "alt", p_alt_value = "a" + /*i*/ ctx[12]);
+    			add_location(p, file$1, 59, 4, 1339);
+    			dispose = listen_dev(p, "click", /*_focusTxt*/ ctx[5], false, false, false);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p, anchor);
+    			append_dev(p, t0);
+    			append_dev(p, t1);
+    			append_dev(p, t2);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*as*/ 4 && t2_value !== (t2_value = /*a*/ ctx[10] + "")) set_data_dev(t2, t2_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p);
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block.name,
+    		type: "else",
+    		source: "(59:4) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (55:4) {#if a.startsWith('/')}
+    function create_if_block(ctx) {
     	let figure;
     	let img;
     	let img_src_value;
+    	let img_alt_value;
     	let t;
     	let dispose;
 
@@ -874,11 +928,11 @@ var app = (function () {
     			figure = element("figure");
     			img = element("img");
     			t = space();
-    			if (img.src !== (img_src_value = /*a*/ ctx[9])) attr_dev(img, "src", img_src_value);
-    			attr_dev(img, "alt", "A");
-    			add_location(img, file$1, 44, 4, 965);
-    			attr_dev(figure, "class", "svelte-xn6y24");
-    			add_location(figure, file$1, 43, 3, 931);
+    			if (img.src !== (img_src_value = /*a*/ ctx[10])) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", img_alt_value = String.fromCharCode(65 + /*i*/ ctx[12]));
+    			add_location(img, file$1, 56, 5, 1259);
+    			attr_dev(figure, "class", "svelte-qeqi1d");
+    			add_location(figure, file$1, 55, 4, 1224);
     			dispose = listen_dev(figure, "click", /*_focusFig*/ ctx[4], false, false, false);
     		},
     		m: function mount(target, anchor) {
@@ -887,7 +941,7 @@ var app = (function () {
     			append_dev(figure, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*as*/ 4 && img.src !== (img_src_value = /*a*/ ctx[9])) {
+    			if (dirty & /*as*/ 4 && img.src !== (img_src_value = /*a*/ ctx[10])) {
     				attr_dev(img, "src", img_src_value);
     			}
     		},
@@ -899,9 +953,62 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+    		id: create_if_block.name,
+    		type: "if",
+    		source: "(55:4) {#if a.startsWith('/')}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (54:3) {#each as as a, i}
+    function create_each_block$1(ctx) {
+    	let show_if;
+    	let if_block_anchor;
+
+    	function select_block_type(ctx, dirty) {
+    		if (show_if == null || dirty & /*as*/ 4) show_if = !!/*a*/ ctx[10].startsWith("/");
+    		if (show_if) return create_if_block;
+    		return create_else_block;
+    	}
+
+    	let current_block_type = select_block_type(ctx, -1);
+    	let if_block = current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (current_block_type === (current_block_type = select_block_type(ctx, dirty)) && if_block) {
+    				if_block.p(ctx, dirty);
+    			} else {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(43:3) {#each as as a}",
+    		source: "(54:3) {#each as as a, i}",
     		ctx
     	});
 
@@ -941,14 +1048,14 @@ var app = (function () {
     			div1 = element("div");
     			h2 = element("h2");
     			t3 = text(/*qs*/ ctx[1]);
-    			add_location(h1, file$1, 39, 1, 857);
-    			attr_dev(div0, "class", "as svelte-xn6y24");
-    			add_location(div0, file$1, 41, 2, 892);
-    			add_location(h2, file$1, 49, 3, 1044);
-    			attr_dev(div1, "class", "qs svelte-xn6y24");
-    			add_location(div1, file$1, 48, 2, 1024);
+    			add_location(h1, file$1, 50, 1, 1120);
+    			attr_dev(div0, "class", "as svelte-qeqi1d");
+    			add_location(div0, file$1, 52, 2, 1153);
+    			add_location(h2, file$1, 64, 3, 1465);
+    			attr_dev(div1, "class", "qs svelte-qeqi1d");
+    			add_location(div1, file$1, 63, 2, 1445);
     			attr_dev(div2, "id", /*id*/ ctx[3]);
-    			add_location(div2, file$1, 40, 1, 874);
+    			add_location(div2, file$1, 51, 1, 1137);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -972,7 +1079,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			if (dirty & /*name*/ 1) set_data_dev(t0, /*name*/ ctx[0]);
 
-    			if (dirty & /*_focusFig, as*/ 20) {
+    			if (dirty & /*as, _focusFig, String, _focusTxt*/ 52) {
     				each_value = /*as*/ ctx[2];
     				let i;
 
@@ -1033,12 +1140,26 @@ var app = (function () {
     		}
 
     		_blurEls();
-    		el.querySelector("#" + id + " img").style.outline = getComputedStyle(document.documentElement).getPropertyValue("--outline-selected");
+    		el.querySelector("img").style.outline = getComputedStyle(document.documentElement).getPropertyValue("--outline-selected");
+    		selection = el;
+    	}
+
+    	function _focusTxt(e) {
+    		let el = e;
+
+    		if (e.currentTarget) {
+    			e.cancelBubble = true;
+    			e.preventDefault();
+    			el = e.currentTarget;
+    		}
+
+    		_blurEls();
+    		el.style.outline = getComputedStyle(document.documentElement).getPropertyValue("--outline-selected");
     		selection = el;
     	}
 
     	function _blurEls() {
-    		let old = document.querySelectorAll("#" + id + " img");
+    		let old = document.querySelectorAll("#" + id + " *");
     		for (let o of old) o.style.outline = "";
     		selection = null;
     	}
@@ -1050,7 +1171,7 @@ var app = (function () {
     	});
 
     	$$self.$set = $$props => {
-    		if ("idx" in $$props) $$invalidate(5, idx = $$props.idx);
+    		if ("idx" in $$props) $$invalidate(6, idx = $$props.idx);
     		if ("name" in $$props) $$invalidate(0, name = $$props.name);
     		if ("qs" in $$props) $$invalidate(1, qs = $$props.qs);
     		if ("as" in $$props) $$invalidate(2, as = $$props.as);
@@ -1062,19 +1183,19 @@ var app = (function () {
 
     	$$self.$inject_state = $$props => {
     		if ("selection" in $$props) selection = $$props.selection;
-    		if ("idx" in $$props) $$invalidate(5, idx = $$props.idx);
+    		if ("idx" in $$props) $$invalidate(6, idx = $$props.idx);
     		if ("name" in $$props) $$invalidate(0, name = $$props.name);
     		if ("qs" in $$props) $$invalidate(1, qs = $$props.qs);
     		if ("as" in $$props) $$invalidate(2, as = $$props.as);
     	};
 
-    	return [name, qs, as, id, _focusFig, idx];
+    	return [name, qs, as, id, _focusFig, _focusTxt, idx];
     }
 
     class Felelet extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$1, create_fragment$1, safe_not_equal, { idx: 5, name: 0, qs: 1, as: 2 });
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, { idx: 6, name: 0, qs: 1, as: 2 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -1086,7 +1207,7 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || ({});
 
-    		if (/*idx*/ ctx[5] === undefined && !("idx" in props)) {
+    		if (/*idx*/ ctx[6] === undefined && !("idx" in props)) {
     			console.warn("<Felelet> was created without expected prop 'idx'");
     		}
 
@@ -1145,7 +1266,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (30:2) {#each components as component}
+    // (31:2) {#each components as component}
     function create_each_block$2(ctx) {
     	let option;
     	let t0_value = /*component*/ ctx[5].idx + "";
@@ -1163,7 +1284,7 @@ var app = (function () {
     			t2 = text(t2_value);
     			option.__value = option_value_value = /*component*/ ctx[5];
     			option.value = option.__value;
-    			add_location(option, file$2, 30, 3, 1127);
+    			add_location(option, file$2, 31, 3, 1724);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
@@ -1181,7 +1302,7 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(30:2) {#each components as component}",
+    		source: "(31:2) {#each components as component}",
     		ctx
     	});
 
@@ -1254,16 +1375,16 @@ var app = (function () {
     			footer = element("footer");
     			h6 = element("h6");
     			h6.textContent = "2020. MÁRcius";
-    			add_location(h1, file$2, 21, 1, 731);
-    			add_location(br, file$2, 22, 62, 823);
-    			add_location(p, file$2, 22, 1, 762);
+    			add_location(h1, file$2, 22, 1, 1328);
+    			add_location(br, file$2, 23, 62, 1420);
+    			add_location(p, file$2, 23, 1, 1359);
     			if (/*selected*/ ctx[0] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[4].call(select));
-    			add_location(select, file$2, 28, 1, 1059);
-    			add_location(header, file$2, 20, 0, 721);
+    			add_location(select, file$2, 29, 1, 1656);
+    			add_location(header, file$2, 21, 0, 1318);
     			attr_dev(main, "id", "slides");
-    			add_location(main, file$2, 36, 0, 1229);
-    			add_location(h6, file$2, 41, 1, 1383);
-    			add_location(footer, file$2, 40, 0, 1373);
+    			add_location(main, file$2, 37, 0, 1826);
+    			add_location(h6, file$2, 42, 1, 1980);
+    			add_location(footer, file$2, 41, 0, 1970);
     			dispose = listen_dev(select, "change", /*select_change_handler*/ ctx[4]);
     		},
     		l: function claim(nodes) {
@@ -1404,7 +1525,7 @@ var app = (function () {
     		},
     		{
     			idx: 2,
-    			name: "Feleletválasztó",
+    			name: "Feleletválasztó - képes",
     			qtype: Felelet,
     			q: "Melyiküknek nincs PhD-fokozata?",
     			a: [
@@ -1413,6 +1534,19 @@ var app = (function () {
     				"/images/animals.jpeg",
     				"/images/nature.jpeg"
     			]
+    		},
+    		{
+    			idx: 3,
+    			name: "Feleletválasztó - szöveges",
+    			qtype: Felelet,
+    			q: "Douglas Adams Galaxis útikalauz stopposoknak című regényében honnan ered a 42, azaz a válasz a kérdések kérdésére?",
+    			a: [
+    				"Az angol To be kifejezésből, ahol a betűk abc sorszáma 4 és 2",
+    				"Az ASCII kódolásban a 42 a „*” karaktert jelenti, ami az informatikában helyettesítő karakter, ami bármit helyettesíthet",
+    				"Ez csak egy egyszerű poén, semmi jelentése nincs",
+    				"Kínaiul a 4 (shi), japánul a 2 (ni), ha ezt összerakjuk (shini), és kanjikkal leírjuk, akkor a halál kifejezést kapjuk"
+    			],
+    			author: "Laci, Júdea Népe Front"
     		}
     	];
 

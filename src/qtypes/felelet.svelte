@@ -17,12 +17,23 @@
 			el = e.currentTarget
 		}
 		_blurEls()
-		el.querySelector('#' + id + ' img').style.outline = getComputedStyle(document.documentElement).getPropertyValue('--outline-selected')
+		el.querySelector('img').style.outline = getComputedStyle(document.documentElement).getPropertyValue('--outline-selected')
+		selection = el
+	}
+	function _focusTxt(e) {
+		let el = e 
+		if (e.currentTarget) {
+			e.cancelBubble = true;
+			e.preventDefault();
+			el = e.currentTarget
+		}
+		_blurEls()
+		el.style.outline = getComputedStyle(document.documentElement).getPropertyValue('--outline-selected')
 		selection = el
 	}
 
 	function _blurEls() {
-		let old = document.querySelectorAll('#' + id + ' img')
+		let old = document.querySelectorAll('#' + id + ' *')
 		for (let o of old) o.style.outline = ''
 		selection = null
 	}
@@ -38,12 +49,16 @@
 </script>
 
 	<h1>{name}</h1>
-	<div id="{id}">
+	<div id={id}>
 		<div class="as">
-			{#each as as a}
-			<figure on:click={_focusFig}>
-				<img src="{a}" alt="A">
-			</figure>
+			{#each as as a, i}
+				{#if a.startsWith('/')}
+				<figure on:click={_focusFig}>
+					<img src={a} alt="{String.fromCharCode(65 + i)}">
+				</figure>
+				{:else}
+				<p on:click={_focusTxt} alt="a{i}">{String.fromCharCode(65 + i)}) {a}</p>
+				{/if}
 			{/each}
 		</div>
 		<div class="qs">
@@ -62,6 +77,8 @@
 	}
 	.as {
 		counter-reset: qnum;
+		min-height: 100vh;
+		align-content: baseline;
 	}
 	.qs::before {
     content: '';
@@ -82,7 +99,7 @@
 	}
 	figure::after {
 		counter-increment: qnum;
-		content: counter(qnum);
+		content: counters(qnum, '.', upper-alpha);
 		position: absolute;
 		left: -.25rem;
 		top: 1rem;

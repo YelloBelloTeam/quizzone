@@ -94,17 +94,17 @@
 </script>
 
 	<h1>{name}</h1>
-	<div id="{id}" on:drop={_drop} on:dragstart={_dragstart} on:dragover={_dragover}>
+	<div id={id} on:drop={_drop} on:dragstart={_dragstart} on:dragover={_dragover}>
 		<div class="qs" on:click|self={_blurFig}>
-			{#each qs as q}
+			{#each qs as q, i}
 			<figure on:click={_focusFig}>
-				<img src="{q}" alt="q">
+				<img src={q} alt="q{i}">
 			</figure>
 			{/each}
 		</div>
 		<div class="as">
 			{#each as as a}
-			<figcaption id="{a}" draggable="true" on:click={_moveTxt}>{a}</figcaption>
+			<figcaption id={a} draggable="true" on:click={_moveTxt}>{a}</figcaption>
 			{/each}
 		</div>
 	</div>
@@ -140,7 +140,7 @@
 	}
 	figure::after {
 		counter-increment: qnum;
-		content: counter(qnum);
+		content: counters(qnum, '.', upper-alpha);
 		position: absolute;
 		left: -.25rem;
 		top: 1rem;

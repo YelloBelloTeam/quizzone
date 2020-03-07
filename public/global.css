@@ -50,6 +50,9 @@ main {
 	color: var(--main-txt);
 	/* padding: 4rem 0 4rem; */
 }
+main p {
+  outline-offset: 8px;
+}
 main img {
 	outline: var(--outline);
 	outline-offset: -2px;
@@ -74,6 +77,14 @@ main h2 {
 	flex-wrap: wrap;
 	justify-content: center;
 }
+.qs p, .as p {
+	width: 100%;
+	cursor: pointer;
+}
+.qs img, .as img {
+	cursor: pointer;
+}
+
 
 #txt-1 { order: 1; }
 #txt-2 { order: 2; }
