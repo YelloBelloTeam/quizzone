@@ -1067,7 +1067,7 @@ var app = (function () {
     			t6 = space();
     			footer = element("footer");
     			h6 = element("h6");
-    			h6.textContent = "2020. FEBruár";
+    			h6.textContent = "2020. MÁRcius";
     			add_location(h1, file$2, 20, 1, 412);
     			add_location(br, file$2, 21, 62, 504);
     			add_location(p, file$2, 21, 1, 443);

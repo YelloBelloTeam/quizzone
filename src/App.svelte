@@ -41,5 +41,5 @@
 </main>
 
 <footer>
-	<h6>2020. FEBruár</h6>
+	<h6>2020. MÁRcius</h6>
 </footer>
