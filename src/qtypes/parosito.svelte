@@ -112,22 +112,22 @@
 <style>
 	.qs, .as {
 		/* width: 100%; */
+		padding: 1rem;
 	}
 	.qs {
 		counter-reset: qnum;
-		padding: 1rem;
 	}
 	.as {
 		position: sticky;
 		bottom: 1rem;
-		padding: 0;
 	}
 	.as::before {
     content: '';
     position: absolute;
     width: 100%; 
-    height: 100%;  
-    opacity: .75; 
+    top: 0;
+		bottom: 0;
+		opacity: .75; 
     z-index: -1;
     background-color: var(--theme-color, orange);
 	}

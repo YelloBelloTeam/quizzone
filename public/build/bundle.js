@@ -444,7 +444,7 @@ var app = (function () {
     			if (img.src !== (img_src_value = /*q*/ ctx[16])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "q");
     			add_location(img, file, 100, 4, 2793);
-    			attr_dev(figure, "class", "svelte-qo0i6c");
+    			attr_dev(figure, "class", "svelte-1v1gtck");
     			add_location(figure, file, 99, 3, 2759);
     			dispose = listen_dev(figure, "click", /*_focusFig*/ ctx[4], false, false, false);
     		},
@@ -489,7 +489,7 @@ var app = (function () {
     			t = text(t_value);
     			attr_dev(figcaption, "id", figcaption_id_value = /*a*/ ctx[13]);
     			attr_dev(figcaption, "draggable", "true");
-    			attr_dev(figcaption, "class", "svelte-qo0i6c");
+    			attr_dev(figcaption, "class", "svelte-1v1gtck");
     			add_location(figcaption, file, 106, 3, 2891);
     			dispose = listen_dev(figcaption, "click", /*_moveTxt*/ ctx[6], false, false, false);
     		},
@@ -564,9 +564,9 @@ var app = (function () {
     			}
 
     			add_location(h1, file, 95, 1, 2594);
-    			attr_dev(div0, "class", "qs svelte-qo0i6c");
+    			attr_dev(div0, "class", "qs svelte-1v1gtck");
     			add_location(div0, file, 97, 2, 2695);
-    			attr_dev(div1, "class", "as svelte-qo0i6c");
+    			attr_dev(div1, "class", "as svelte-1v1gtck");
     			add_location(div1, file, 104, 2, 2852);
     			attr_dev(div2, "id", /*id*/ ctx[3]);
     			add_location(div2, file, 96, 1, 2611);
