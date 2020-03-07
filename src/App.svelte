@@ -8,13 +8,14 @@
 	*/
 
 	const components = [
-		{ name: 'Párosító', qtype: Parosito, idx: 1 },
-		{ name: 'Feleletválasztó', qtype: Felelet, idx: 2 },
+		{ idx: 1, name: 'Párosító', qtype: Parosito, q: ['/images/city.jpeg', '/images/transport.jpeg', '/images/animals.jpeg', '/images/nature.jpeg', '/images/people.jpeg'], a:['PEOPLE', 'NATURE', 'ANIMALS', 'TRANSPORT', 'CITY'] },
+		{ idx: 2, name: 'Feleletválasztó', qtype: Felelet, q: 'Melyiküknek nincs PhD-fokozata?', a: ['/images/city.jpeg', '/images/transport.jpeg', '/images/animals.jpeg', '/images/nature.jpeg'] },
 	];
 
-	let selected = components[0];
+	let selected = components[1];
 
-	let idx;
+	let	q,
+			a;
 </script>
 
 <header>
@@ -27,17 +28,14 @@
 	<span>5.: {$count[5]}</span><br> -->
 	<select bind:value={selected}>
 		{#each components as component}
-			<option value={component}>{component.idx} {component.name}</option>
+			<option value={component}>{component.idx}. {component.name}</option>
 		{/each}
 	</select>
 
 </header>
 
 <main id="slides">
-	<svelte:component this={selected.qtype} idx={selected.idx} />
-	<!-- <Felelet idx={1} />
-	<br>
-	<Parosito idx={2} /> -->
+	<svelte:component this={selected.qtype} idx={selected.idx} qs={selected.q} as={selected.a} name={selected.name} />
 </main>
 
 <footer>

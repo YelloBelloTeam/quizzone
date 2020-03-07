@@ -1,8 +1,12 @@
 <script>
 	import { count } from '../stores.js';
 	// export let status;
-	var selected;
-	export let idx;
+	var selection;
+	export let	idx,
+							name,
+							qs,
+							as;
+
 	const id = `s${idx}`
 
 	function _focusFig(e) {
@@ -14,13 +18,13 @@
 		}
 		_blurEls()
 		el.querySelector('#' + id + ' img').style.outline = getComputedStyle(document.documentElement).getPropertyValue('--outline-selected')
-		selected = el
+		selection = el
 	}
 
 	function _blurEls() {
 		let old = document.querySelectorAll('#' + id + ' img')
 		for (let o of old) o.style.outline = ''
-		selected = null
+		selection = null
 	}
 
 	function _blurFig(ev) {
@@ -31,14 +35,14 @@
 
 	function _moveTxt(e) {
 		let el = e.target
-		if (selected && selected.tagName == 'FIGURE') {
-			let old = selected.querySelector('#' + id + ' figcaption');
+		if (selection && selection.tagName == 'FIGURE') {
+			let old = selection.querySelector('#' + id + ' figcaption');
 			if (old) document.querySelector('#' + id + ' .as').appendChild(old);
 			if (old != el) {
-				// selected.appendChild(el)
+				// selection.appendChild(el)
 				_dispatch(el)
-				if (selected.nextElementSibling) _focusFig(selected.nextElementSibling)
-				else _focusFig(selected.parentNode.firstElementChild)
+				if (selection.nextElementSibling) _focusFig(selection.nextElementSibling)
+				else _focusFig(selection.parentNode.firstElementChild)
 			}
 		} else {
 			document.querySelector('#' + id + ' .as').appendChild(el);
@@ -65,14 +69,14 @@
 		e.preventDefault();
 		let el = document.getElementById(e.dataTransfer.getData("text"))
 		if (el && el.tagName == 'FIGCAPTION') {
-			let selected = e.target.parentNode
-			if (selected.tagName == 'FIGURE') {
-				let old = selected.querySelector('#' + id + ' figcaption')
+			let selection = e.target.parentNode
+			if (selection.tagName == 'FIGURE') {
+				let old = selection.querySelector('#' + id + ' figcaption')
 				if (old) document.querySelector('#' + id + ' .as').appendChild(old)
-				// selected.appendChild(el)
+				// selection.appendChild(el)
 				_dispatch(el)
-				if (selected.nextElementSibling) _focusFig(selected.nextElementSibling)
-				else _focusFig(selected.parentNode.firstElementChild)
+				if (selection.nextElementSibling) _focusFig(selection.nextElementSibling)
+				else _focusFig(selection.parentNode.firstElementChild)
 			} else {
 				document.querySelector('#' + id + ' .as').appendChild(el)
 			}
@@ -80,40 +84,28 @@
   }
   
   function _dispatch(el) {
-    selected.appendChild(el)
-    // console.log(selected.querySelector('#' + id + ' img').alt)
+    selection.appendChild(el)
+    // console.log(selection.querySelector('#' + id + ' img').alt)
     let c = count
-    c[selected.querySelector('#' + id + ' img').alt] = el.id
+    c[selection.querySelector('#' + id + ' img').alt] = el.id
     count.set(c)
   }
 
 </script>
 
-	<h1>Párosító</h1>
+	<h1>{name}</h1>
 	<div id="{id}" on:drop={_drop} on:dragstart={_dragstart} on:dragover={_dragover}>
 		<div class="qs" on:click|self={_blurFig}>
+			{#each qs as q}
 			<figure on:click={_focusFig}>
-				<img src="/images/city.jpeg" alt="1">
+				<img src="{q}" alt="q">
 			</figure>
-			<figure on:click={_focusFig}>
-				<img src="/images/transport.jpeg" alt="2">
-			</figure>
-			<figure on:click={_focusFig}>
-				<img src="/images/animals.jpeg" alt="3">
-			</figure>
-			<figure on:click={_focusFig}>
-				<img src="/images/nature.jpeg" alt="4">
-			</figure>
-			<figure on:click={_focusFig}>
-				<img src="/images/people.jpeg" alt="5">
-			</figure>
+			{/each}
 		</div>
 		<div class="as">
-			<figcaption draggable="true" id="txt-1" on:click={_moveTxt}>A) PEOPLE</figcaption>
-			<figcaption draggable="true" id="txt-2" on:click={_moveTxt}>B) NATURE</figcaption>
-			<figcaption draggable="true" id="txt-3" on:click={_moveTxt}>C) ANIMALS</figcaption>
-			<figcaption draggable="true" id="txt-4" on:click={_moveTxt}>D) TRANSPORT</figcaption>
-			<figcaption draggable="true" id="txt-5" on:click={_moveTxt}>E) CITY</figcaption>
+			{#each as as a}
+			<figcaption id="{a}" draggable="true" on:click={_moveTxt}>{a}</figcaption>
+			{/each}
 		</div>
 	</div>
 	<!-- <figure hidden><figcaption class="txt"></figcaption></figure> -->

@@ -13,13 +13,15 @@ var visibility = true
 
 document.addEventListener('visibilitychange', () => {
 	console.log(visibility)
-  if ((document.hidden || document.msHidden || document.webkitHidden) && visibility) {
+  if ((document.hidden || document.msHidden || document.webkitHidden)) {
     // the page has been hidden
-    visibility = false
-		alert(`Másik tabon gugliztál? ${visibility}`)
-    visibility = true
+		if (visibility) {
+			alert(`Másik tabon gugliztál? ${visibility}`)
+			visibility = false
+		}
   } else {
     // the page has become visible
+		visibility = true
     //alert('Jó, hogy visszajöttél!')
   }
 });

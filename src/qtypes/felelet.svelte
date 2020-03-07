@@ -1,8 +1,12 @@
 <script>
 	import { count } from '../stores.js';
 	// export let status;
-	var selected;
-	export let idx;
+	var selection;
+	export let	idx,
+							name,
+							qs,
+							as;
+
 	const id = `s${idx}`
 
 	function _focusFig(e) {
@@ -14,43 +18,36 @@
 		}
 		_blurEls()
 		el.querySelector('#' + id + ' img').style.outline = getComputedStyle(document.documentElement).getPropertyValue('--outline-selected')
-		selected = el
+		selection = el
 	}
 
 	function _blurEls() {
 		let old = document.querySelectorAll('#' + id + ' img')
 		for (let o of old) o.style.outline = ''
-		selected = null
+		selection = null
 	}
 
   function _dispatch(el) {
-    selected.appendChild(el)
-    // console.log(selected.querySelector('#' + id + ' img').alt)
+    selection.appendChild(el)
+    // console.log(selection.querySelector('#' + id + ' img').alt)
     let c = count
-    c[selected.querySelector('#' + id + ' img').alt] = el.id
+    c[selection.querySelector('#' + id + ' img').alt] = el.id
     count.set(c)
   }
 
 </script>
 
-	<h1>Feleletválasztó</h1>
+	<h1>{name}</h1>
 	<div id="{id}">
 		<div class="as">
+			{#each as as a}
 			<figure on:click={_focusFig}>
-				<img src="/images/city.jpeg" alt="A">
+				<img src="{a}" alt="A">
 			</figure>
-			<figure on:click={_focusFig}>
-				<img src="/images/transport.jpeg" alt="B">
-			</figure>
-			<figure on:click={_focusFig}>
-				<img src="/images/animals.jpeg" alt="C">
-			</figure>
-			<figure on:click={_focusFig}>
-				<img src="/images/nature.jpeg" alt="D">
-			</figure>
+			{/each}
 		</div>
 		<div class="qs">
-			<h2>Melyiküknek nincs PhD-fokozata?</h2>
+			<h2>{qs}</h2>
 		</div>
 	</div>
 	<!-- <figure hidden><figcaption class="txt"></figcaption></figure> -->
