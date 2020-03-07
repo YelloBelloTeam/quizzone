@@ -67,7 +67,7 @@ main h1 {
 	outline-style: dotted;
 	outline-offset: -10px;
 }
-main h2 {
+main h3 {
 	margin: 0;
 }
 
@@ -84,13 +84,6 @@ main h2 {
 .qs img, .as img {
 	cursor: pointer;
 }
-
-
-#txt-1 { order: 1; }
-#txt-2 { order: 2; }
-#txt-3 { order: 3; }
-#txt-4 { order: 4; }
-#txt-5 { order: 5; }
 
 
 a {

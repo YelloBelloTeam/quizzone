@@ -1,13 +1,22 @@
 <script>
+	import { onMount } from 'svelte'
 	import { count } from '../stores.js';
 	// export let status;
-	var selection;
+
+	var	selection,
+			slide
+
 	export let	idx,
 							name,
 							qs,
 							as;
 
 	const id = `s${idx}`
+
+	onMount(() => {
+		slide = document.querySelector('#' + id)
+	});
+
 
 	function _focusFig(e) {
 		let el = e 
@@ -17,12 +26,12 @@
 			el = e.currentTarget
 		}
 		_blurEls()
-		el.querySelector('#' + id + ' img').style.outline = getComputedStyle(document.documentElement).getPropertyValue('--outline-selected')
+		el.querySelector('img').style.outline = getComputedStyle(document.documentElement).getPropertyValue('--outline-selected')
 		selection = el
 	}
 
 	function _blurEls() {
-		let old = document.querySelectorAll('#' + id + ' img')
+		let old = slide.querySelectorAll('img')
 		for (let o of old) o.style.outline = ''
 		selection = null
 	}
@@ -36,8 +45,8 @@
 	function _moveTxt(e) {
 		let el = e.target
 		if (selection && selection.tagName == 'FIGURE') {
-			let old = selection.querySelector('#' + id + ' figcaption');
-			if (old) document.querySelector('#' + id + ' .as').appendChild(old);
+			let old = selection.querySelector('figcaption');
+			if (old) slide.querySelector('.as').appendChild(old);
 			if (old != el) {
 				// selection.appendChild(el)
 				_dispatch(el)
@@ -45,7 +54,7 @@
 				else _focusFig(selection.parentNode.firstElementChild)
 			}
 		} else {
-			document.querySelector('#' + id + ' .as').appendChild(el);
+			slide.querySelector('.as').appendChild(el);
 		}
 	}
 
@@ -71,14 +80,14 @@
 		if (el && el.tagName == 'FIGCAPTION') {
 			let selection = e.target.parentNode
 			if (selection.tagName == 'FIGURE') {
-				let old = selection.querySelector('#' + id + ' figcaption')
-				if (old) document.querySelector('#' + id + ' .as').appendChild(old)
+				let old = selection.querySelector('figcaption')
+				if (old) slide.querySelector('.as').appendChild(old)
 				// selection.appendChild(el)
 				_dispatch(el)
 				if (selection.nextElementSibling) _focusFig(selection.nextElementSibling)
 				else _focusFig(selection.parentNode.firstElementChild)
 			} else {
-				document.querySelector('#' + id + ' .as').appendChild(el)
+				slide.querySelector('.as').appendChild(el)
 			}
 		}
   }
@@ -87,7 +96,7 @@
     selection.appendChild(el)
     // console.log(selection.querySelector('#' + id + ' img').alt)
     let c = count
-    c[selection.querySelector('#' + id + ' img').alt] = el.id
+    c[selection.querySelector('img').alt] = el.id
     count.set(c)
   }
 
@@ -103,8 +112,8 @@
 			{/each}
 		</div>
 		<div class="as">
-			{#each as as a}
-			<figcaption id={a} draggable="true" on:click={_moveTxt}>{a}</figcaption>
+			{#each as as a, i}
+			<figcaption id={a} draggable="true" style="order:{i}" on:click={_moveTxt}>{a}</figcaption>
 			{/each}
 		</div>
 	</div>
@@ -112,14 +121,15 @@
 <style>
 	.qs, .as {
 		/* width: 100%; */
-		padding: 1rem;
 	}
 	.qs {
 		counter-reset: qnum;
+		padding: 2rem 1rem;
 	}
 	.as {
 		position: sticky;
 		bottom: 1rem;
+		padding: 1rem;
 	}
 	.as::before {
     content: '';

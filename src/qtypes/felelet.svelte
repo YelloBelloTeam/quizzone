@@ -1,13 +1,23 @@
 <script>
+	import { onMount } from 'svelte'
 	import { count } from '../stores.js';
 	// export let status;
-	var selection;
+
+	var selection,
+			slide
+	
 	export let	idx,
 							name,
 							qs,
-							as;
+							as,
+							author;
 
 	const id = `s${idx}`
+
+	onMount(() => {
+		slide = document.querySelector('#' + id)
+	});
+
 
 	function _focusFig(e) {
 		let el = e 
@@ -20,6 +30,7 @@
 		el.querySelector('img').style.outline = getComputedStyle(document.documentElement).getPropertyValue('--outline-selected')
 		selection = el
 	}
+
 	function _focusTxt(e) {
 		let el = e 
 		if (e.currentTarget) {
@@ -33,7 +44,7 @@
 	}
 
 	function _blurEls() {
-		let old = document.querySelectorAll('#' + id + ' *')
+		let old = slide.querySelectorAll('*')
 		for (let o of old) o.style.outline = ''
 		selection = null
 	}
@@ -42,7 +53,7 @@
     selection.appendChild(el)
     // console.log(selection.querySelector('#' + id + ' img').alt)
     let c = count
-    c[selection.querySelector('#' + id + ' img').alt] = el.id
+    c[selection.querySelector('img').alt] = el.id
     count.set(c)
   }
 
@@ -62,22 +73,23 @@
 			{/each}
 		</div>
 		<div class="qs">
-			<h2>{qs}</h2>
+			<h3>{qs} {#if author}<span>({author})</span>{/if}</h3>
 		</div>
 	</div>
 	<!-- <figure hidden><figcaption class="txt"></figcaption></figure> -->
 <style>
 	.qs, .as {
 		/* width: 100%; */
-		padding: 1rem;
 	}
 	.qs {
 		position: sticky;
 		bottom: 1rem;
+		padding: 1rem;
 	}
 	.as {
 		counter-reset: qnum;
-		min-height: 100vh;
+		min-height: 50vh;
+		padding: 2rem 1rem;
 		align-content: baseline;
 	}
 	.qs::before {
@@ -139,6 +151,11 @@
 		width: fit-content;
 		max-width: unset;
 		bottom: 1rem;
+	}
+
+	.qs span {
+		font-weight: lighter;
+		font-style: italic;
 	}
 
 </style>

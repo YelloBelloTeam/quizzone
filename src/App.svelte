@@ -1,7 +1,7 @@
 <script>
-	import Parosito from './qtypes/parosito.svelte';
-	import Felelet from './qtypes/felelet.svelte';
-	import { count } from './stores.js';
+	import Parosito from './qtypes/parosito.svelte'
+	import Felelet from './qtypes/felelet.svelte'
+	import { count } from './stores.js'
 	/*
 	svelte-loadable
 	https://www.npmjs.com/package/svelte-loadable
@@ -13,14 +13,14 @@
 		{ idx: 3, name: 'Feleletválasztó - szöveges', qtype: Felelet, q: 'Douglas Adams Galaxis útikalauz stopposoknak című regényében honnan ered a 42, azaz a válasz a kérdések kérdésére?', a: ['Az angol To be kifejezésből, ahol a betűk abc sorszáma 4 és 2', 'Az ASCII kódolásban a 42 a „*” karaktert jelenti, ami az informatikában helyettesítő karakter, ami bármit helyettesíthet', 'Ez csak egy egyszerű poén, semmi jelentése nincs', 'Kínaiul a 4 (shi), japánul a 2 (ni), ha ezt összerakjuk (shini), és kanjikkal leírjuk, akkor a halál kifejezést kapjuk'], author: 'Laci, Júdea Népe Front' },
 	];
 
-	let selected = components[1];
+	let selected = components[0];
 
 	let	q,
 			a;
 </script>
 
 <header>
-	<h1>Quizzone experiment!</h1>
+	<h1>Quizzone experiments!</h1>
 	<p>Nem vagyunk "bezárva" egy képernyőbe, mint a projektoron! <br>Scrollozhatunk! Drag & drop! Select & pair!</p>
   <!-- <span>1.: {$count[1]}</span><br>
   <span>2.: {$count[2]}</span><br>
@@ -36,7 +36,7 @@
 </header>
 
 <main id="slides">
-	<svelte:component this={selected.qtype} idx={selected.idx} qs={selected.q} as={selected.a} name={selected.name} />
+	<svelte:component this={selected.qtype} idx={selected.idx} qs={selected.q} as={selected.a} name={selected.name} author={selected.author} />
 </main>
 
 <footer>
