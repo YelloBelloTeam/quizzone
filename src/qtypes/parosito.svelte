@@ -46,7 +46,7 @@
 		let el = e.target
 		if (selection && selection.tagName == 'FIGURE') {
 			let old = selection.querySelector('figcaption');
-			if (old) slide.querySelector('.as').appendChild(old);
+			if (old) slide.querySelector('.sticky').appendChild(old);
 			if (old != el) {
 				// selection.appendChild(el)
 				_dispatch(el)
@@ -54,7 +54,7 @@
 				else _focusFig(selection.parentNode.firstElementChild)
 			}
 		} else {
-			slide.querySelector('.as').appendChild(el);
+			slide.querySelector('.sticky').appendChild(el);
 		}
 	}
 
@@ -81,13 +81,13 @@
 			let selection = e.target.parentNode
 			if (selection.tagName == 'FIGURE') {
 				let old = selection.querySelector('figcaption')
-				if (old) slide.querySelector('.as').appendChild(old)
+				if (old) slide.querySelector('.sticky').appendChild(old)
 				// selection.appendChild(el)
 				_dispatch(el)
 				if (selection.nextElementSibling) _focusFig(selection.nextElementSibling)
 				else _focusFig(selection.parentNode.firstElementChild)
 			} else {
-				slide.querySelector('.as').appendChild(el)
+				slide.querySelector('.sticky').appendChild(el)
 			}
 		}
   }
@@ -103,15 +103,15 @@
 </script>
 
 	<h1>{name}</h1>
-	<div id={id} on:drop={_drop} on:dragstart={_dragstart} on:dragover={_dragover}>
-		<div class="qs" on:click|self={_blurFig}>
+	<div id={id} class="slide" on:drop={_drop} on:dragstart={_dragstart} on:dragover={_dragover}>
+		<div class="multi" on:click|self={_blurFig}>
 			{#each qs as q, i}
-			<figure on:click={_focusFig}>
+			<figure class="abcd" on:click={_focusFig}>
 				<img src={q} alt="q{i}">
 			</figure>
 			{/each}
 		</div>
-		<div class="as">
+		<div class="multi sticky">
 			{#each as as a, i}
 			<figcaption id={a} draggable="true" style="order:{i}" on:click={_moveTxt}>{a}</figcaption>
 			{/each}
@@ -119,77 +119,5 @@
 	</div>
 	<!-- <figure hidden><figcaption class="txt"></figcaption></figure> -->
 <style>
-	.qs, .as {
-		/* width: 100%; */
-	}
-	.qs {
-		counter-reset: qnum;
-		padding: 2rem 1rem;
-	}
-	.as {
-		position: sticky;
-		bottom: 1rem;
-		padding: 1rem;
-	}
-	.as::before {
-    content: '';
-    position: absolute;
-    width: 100%; 
-    top: 0;
-		bottom: 0;
-		opacity: .75; 
-    z-index: -1;
-    background-color: var(--theme-color, orange);
-	}
-
-
-	figure {
-		position: relative;
-		margin: 1%;
-		width: 31%;
-	}
-	figure::after {
-		counter-increment: qnum;
-		content: counters(qnum, '.', upper-alpha);
-		position: absolute;
-		left: -.25rem;
-		top: 1rem;
-		outline: solid 2px white;
-		width: 2rem;
-		text-align: center;
-		background: var(--theme-color, orange);
-		color: white;
-	}
-
-	figcaption {
-		/* flex-grow: 1; */
-		max-width: 31%;
-		margin: .5rem 1%;
-		padding: 0 .5rem;
-		outline: solid 2px white;
-		text-align: center;
-		background: var(--theme-color, orange);
-    color: white;
-    cursor: move;
-	}
-
-	@media screen and (orientation:portrait) {
-		figure {
-			margin: 1%;
-			width: 46%;
-		}
-		figcaption {
-			max-width: 46%;
-		}
-	}
-
-	/* párosítás után */
-	figure :global(figcaption) {
-		position: absolute;
-		margin: 0 -.25rem;
-		width: fit-content;
-		max-width: unset;
-		bottom: 1rem;
-	}
 
 </style>

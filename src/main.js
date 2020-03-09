@@ -16,7 +16,7 @@ document.addEventListener('visibilitychange', () => {
   if ((document.hidden || document.msHidden || document.webkitHidden)) {
     // the page has been hidden
 		if (visibility) {
-			alert(`Másik tabon gugliztál? ${visibility}`)
+			console.log(`Másik tabon gugliztál? ${visibility}`)
 			visibility = false
 		}
   } else {
