@@ -31,18 +31,6 @@
 		selection = el
 	}
 
-	function _focusTxt(e) {
-		let el = e
-		if (e.currentTarget) {
-			/* e.cancelBubble = true;
-			e.preventDefault(); */
-			el = e.currentTarget
-		}
-		_blurEls()
-		el.querySelector('.selectable').style.outline = getComputedStyle(document.documentElement).getPropertyValue('--outline-selected')
-		selection = el
-	}
-
 	function _blurEls() {
 		let old = slide.querySelectorAll('.selectable')
 		for (let o of old) o.style.outline = ''
@@ -62,26 +50,26 @@
 <h1>{name}</h1>
 <div id={id} class="slide">
 	{#if Array.isArray(qs)}
+	<div class="multi">
 	{#each qs as q, i}
-	<div class="solo">
-		<figure class="abcd" on:click={_focusFig}>
-			<label for="q{i}">
+		<figure class="abcd">
+			<label for="q{i}" on:click={_focusFig}>
 				{#if q.startsWith('/')}
 				<img class="selectable" src={q} alt="{String.fromCharCode(97 + i)}">
 				{:else}
 				<p class="selectable">{q}</p>
 				{/if}
 			</label>
+			<div class="sticky free">
+				<input id="q{i}" type="text" name="a[{i}]" value={as[i]} />
+			</div>
 		</figure>
-		<div class="sticky free">
-			<input id="q{i}" type="text" name="a[{i}]" value={as[i]} />
-		</div>
-	</div>
 	{/each}
+	</div>
 	{:else}
 	<div class="solo">
-		<figure on:click={_focusFig}>
-			<label for="qsolo">
+		<figure>
+			<label for="qsolo" on:click={_focusFig}>
 				{#if qs.startsWith('/')}
 				<img class="selectable" src={qs} alt="q">
 				{:else}
@@ -95,7 +83,7 @@
 	</div>
 	{/if}
 </div>
-	<!-- <figure hidden><figcaption class="txt"></figcaption></figure> -->
+
 <style>
 
 </style>

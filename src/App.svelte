@@ -9,7 +9,7 @@
 	*/
 
 	const components = [
-		{ idx: 1, name: 'Párosító', qtype: Parosito, q: ['/images/city.jpeg', '/images/transport.jpeg', '/images/animals.jpeg', '/images/nature.jpeg', '/images/people.jpeg'], a:['PEOPLE', 'NATURE', 'ANIMALS', 'TRANSPORT', 'CITY'] },
+		{ idx: 1, name: 'Párosító', qtype: Parosito, q: ['/images/city.jpeg', '/images/transport.jpeg', '/images/animals.jpeg', '/images/nature.jpeg', '/images/people.jpeg'], a:['People', 'Nature', 'Animals', 'Transport', 'City'] },
 		{ idx: 2, name: 'Feleletválasztó - képes', qtype: Felelet, q: 'Melyiküknek nincs PhD-fokozata?', a: ['/images/city.jpeg', '/images/transport.jpeg', '/images/animals.jpeg', '/images/nature.jpeg'] },
 		{ idx: 3, name: 'Feleletválasztó - szöveges', qtype: Felelet, q: 'Douglas Adams Galaxis útikalauz stopposoknak című regényében honnan ered a 42, azaz a válasz a kérdések kérdésére?', a: ['Az angol To be kifejezésből, ahol a betűk abc sorszáma 4 és 2', 'Az ASCII kódolásban a 42 a „*” karaktert jelenti, ami az informatikában helyettesítő karakter, ami bármit helyettesíthet', 'Ez csak egy egyszerű poén, semmi jelentése nincs', 'Kínaiul a 4 (shi), japánul a 2 (ni), ha ezt összerakjuk (shini), és kanjikkal leírjuk, akkor a halál kifejezést kapjuk'], author: 'Laci, Júdea Népe Front' },
 		{ idx: 4, name: 'Szabadválasz - vegyes', qtype: Szabad, q: ['/images/city.jpeg', '/images/transport.jpeg', 'Harmadik szöveges', '/images/animals.jpeg', '/images/nature.jpeg', '/images/people.jpeg', 'Utolsó is szöveges'], a: [] },

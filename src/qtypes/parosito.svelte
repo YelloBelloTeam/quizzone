@@ -102,22 +102,22 @@
 
 </script>
 
-	<h1>{name}</h1>
-	<div id={id} class="slide" on:drop={_drop} on:dragstart={_dragstart} on:dragover={_dragover}>
-		<div class="multi" on:click|self={_blurFig}>
-			{#each qs as q, i}
-			<figure class="abcd" on:click={_focusFig}>
-				<img src={q} alt="q{i}">
-			</figure>
-			{/each}
-		</div>
-		<div class="multi sticky">
-			{#each as as a, i}
-			<figcaption id={a} draggable="true" style="order:{i}" on:click={_moveTxt}>{a}</figcaption>
-			{/each}
-		</div>
+<h1>{name}</h1>
+<div id={id} class="slide" on:drop={_drop} on:dragstart={_dragstart} on:dragover={_dragover}>
+	<div class="multi" on:click|self={_blurFig}>
+		{#each qs as q, i}
+		<figure class="abcd" on:click={_focusFig}>
+			<img class="selectable" src={q} alt="q{i}">
+		</figure>
+		{/each}
 	</div>
-	<!-- <figure hidden><figcaption class="txt"></figcaption></figure> -->
+	<div class="multi sticky">
+		{#each as as a, i}
+		<figcaption id={a} draggable="true" style="order:{i}" on:click={_moveTxt}>{a}</figcaption>
+		{/each}
+	</div>
+</div>
+
 <style>
 
 </style>

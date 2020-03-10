@@ -31,18 +31,6 @@
 		selection = el
 	}
 
-	function _focusTxt(e) {
-		let el = e 
-		if (e.currentTarget) {
-			/* e.cancelBubble = true;
-			e.preventDefault(); */
-			el = e.currentTarget
-		}
-		_blurEls()
-		el.querySelector('.selectable').style.outline = getComputedStyle(document.documentElement).getPropertyValue('--outline-selected')
-		selection = el
-	}
-
 	function _blurEls() {
 		let old = slide.querySelectorAll('.selectable')
 		for (let o of old) o.style.outline = ''
@@ -59,24 +47,24 @@
 
 </script>
 
-	<h1>{name}</h1>
-	<div id={id} class="slide">
-		<div class="multi">
-			{#each as as a, i}
-			<figure class="abcd" on:click={_focusFig}>
-				{#if a.startsWith('/')}
-				<img class="selectable" src={a} alt="{String.fromCharCode(65 + i)}">
-				{:else}
-				<p class="selectable" alt="a{i}">{String.fromCharCode(65 + i)}) {a}</p>
-				{/if}
-			</figure>
-			{/each}
-		</div>
-		<div class="qs sticky">
-			<h3>{qs} {#if author}<span class="author">({author})</span>{/if}</h3>
-		</div>
+<h1>{name}</h1>
+<div id={id} class="slide">
+	<div class="multi">
+		{#each as as a, i}
+		<figure class="abcd" on:click={_focusFig}>
+			{#if a.startsWith('/')}
+			<img class="selectable" src={a} alt="{String.fromCharCode(65 + i)}">
+			{:else}
+			<p class="selectable" alt="a{i}">{a}</p>
+			{/if}
+		</figure>
+		{/each}
 	</div>
-	<!-- <figure hidden><figcaption class="txt"></figcaption></figure> -->
+	<div class="qs sticky">
+		<p>{qs} {#if author}<span class="author">({author})</span>{/if}</p>
+	</div>
+</div>
+
 <style>
 
 </style>

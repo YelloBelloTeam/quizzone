@@ -49,9 +49,6 @@ var app = (function () {
     function space() {
         return text(' ');
     }
-    function empty() {
-        return text('');
-    }
     function listen(node, event, handler, options) {
         node.addEventListener(event, handler, options);
         return () => node.removeEventListener(event, handler, options);
@@ -474,7 +471,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (108:3) {#each qs as q, i}
+    // (108:2) {#each qs as q, i}
     function create_each_block_1(ctx) {
     	let figure;
     	let img;
@@ -488,11 +485,12 @@ var app = (function () {
     			figure = element("figure");
     			img = element("img");
     			t = space();
+    			attr_dev(img, "class", "selectable");
     			if (img.src !== (img_src_value = /*q*/ ctx[17])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = "q" + /*i*/ ctx[16]);
-    			add_location(img, file, 109, 4, 2829);
+    			add_location(img, file, 109, 3, 2823);
     			attr_dev(figure, "class", "abcd");
-    			add_location(figure, file, 108, 3, 2782);
+    			add_location(figure, file, 108, 2, 2777);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, figure, anchor);
@@ -515,14 +513,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(108:3) {#each qs as q, i}",
+    		source: "(108:2) {#each qs as q, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (115:3) {#each as as a, i}
+    // (115:2) {#each as as a, i}
     function create_each_block(ctx) {
     	let figcaption;
     	let t_value = /*a*/ ctx[14] + "";
@@ -537,7 +535,7 @@ var app = (function () {
     			attr_dev(figcaption, "id", figcaption_id_value = /*a*/ ctx[14]);
     			attr_dev(figcaption, "draggable", "true");
     			set_style(figcaption, "order", /*i*/ ctx[16]);
-    			add_location(figcaption, file, 115, 3, 2941);
+    			add_location(figcaption, file, 115, 2, 2948);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, figcaption, anchor);
@@ -561,7 +559,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(115:3) {#each as as a, i}",
+    		source: "(115:2) {#each as as a, i}",
     		ctx
     	});
 
@@ -612,14 +610,14 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			add_location(h1, file, 104, 1, 2599);
+    			add_location(h1, file, 104, 0, 2598);
     			attr_dev(div0, "class", "multi");
-    			add_location(div0, file, 106, 2, 2712);
+    			add_location(div0, file, 106, 1, 2709);
     			attr_dev(div1, "class", "multi sticky");
-    			add_location(div1, file, 113, 2, 2889);
+    			add_location(div1, file, 113, 1, 2898);
     			attr_dev(div2, "id", /*id*/ ctx[3]);
     			attr_dev(div2, "class", "slide");
-    			add_location(div2, file, 105, 1, 2616);
+    			add_location(div2, file, 105, 0, 2614);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -946,39 +944,32 @@ var app = (function () {
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[12] = list[i];
-    	child_ctx[14] = i;
+    	child_ctx[11] = list[i];
+    	child_ctx[13] = i;
     	return child_ctx;
     }
 
-    // (69:4) {:else}
+    // (57:3) {:else}
     function create_else_block(ctx) {
     	let p;
-    	let t0_value = String.fromCharCode(65 + /*i*/ ctx[14]) + "";
-    	let t0;
-    	let t1;
-    	let t2_value = /*a*/ ctx[12] + "";
-    	let t2;
+    	let t_value = /*a*/ ctx[11] + "";
+    	let t;
     	let p_alt_value;
 
     	const block = {
     		c: function create() {
     			p = element("p");
-    			t0 = text(t0_value);
-    			t1 = text(") ");
-    			t2 = text(t2_value);
+    			t = text(t_value);
     			attr_dev(p, "class", "selectable");
-    			attr_dev(p, "alt", p_alt_value = "a" + /*i*/ ctx[14]);
-    			add_location(p, file$1, 69, 4, 1533);
+    			attr_dev(p, "alt", p_alt_value = "a" + /*i*/ ctx[13]);
+    			add_location(p, file$1, 57, 3, 1211);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
-    			append_dev(p, t0);
-    			append_dev(p, t1);
-    			append_dev(p, t2);
+    			append_dev(p, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*as*/ 4 && t2_value !== (t2_value = /*a*/ ctx[12] + "")) set_data_dev(t2, t2_value);
+    			if (dirty & /*as*/ 4 && t_value !== (t_value = /*a*/ ctx[11] + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(p);
@@ -989,14 +980,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(69:4) {:else}",
+    		source: "(57:3) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (67:4) {#if a.startsWith('/')}
+    // (55:3) {#if a.startsWith('/')}
     function create_if_block_1(ctx) {
     	let img;
     	let img_src_value;
@@ -1006,15 +997,15 @@ var app = (function () {
     		c: function create() {
     			img = element("img");
     			attr_dev(img, "class", "selectable");
-    			if (img.src !== (img_src_value = /*a*/ ctx[12])) attr_dev(img, "src", img_src_value);
-    			attr_dev(img, "alt", img_alt_value = String.fromCharCode(65 + /*i*/ ctx[14]));
-    			add_location(img, file$1, 67, 4, 1448);
+    			if (img.src !== (img_src_value = /*a*/ ctx[11])) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", img_alt_value = String.fromCharCode(65 + /*i*/ ctx[13]));
+    			add_location(img, file$1, 55, 3, 1128);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*as*/ 4 && img.src !== (img_src_value = /*a*/ ctx[12])) {
+    			if (dirty & /*as*/ 4 && img.src !== (img_src_value = /*a*/ ctx[11])) {
     				attr_dev(img, "src", img_src_value);
     			}
     		},
@@ -1027,14 +1018,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(67:4) {#if a.startsWith('/')}",
+    		source: "(55:3) {#if a.startsWith('/')}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (65:3) {#each as as a, i}
+    // (53:2) {#each as as a, i}
     function create_each_block$1(ctx) {
     	let figure;
     	let show_if;
@@ -1042,7 +1033,7 @@ var app = (function () {
     	let dispose;
 
     	function select_block_type(ctx, dirty) {
-    		if (show_if == null || dirty & /*as*/ 4) show_if = !!/*a*/ ctx[12].startsWith("/");
+    		if (show_if == null || dirty & /*as*/ 4) show_if = !!/*a*/ ctx[11].startsWith("/");
     		if (show_if) return create_if_block_1;
     		return create_else_block;
     	}
@@ -1056,7 +1047,7 @@ var app = (function () {
     			if_block.c();
     			t = space();
     			attr_dev(figure, "class", "abcd");
-    			add_location(figure, file$1, 65, 3, 1373);
+    			add_location(figure, file$1, 53, 2, 1055);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, figure, anchor);
@@ -1088,14 +1079,14 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(65:3) {#each as as a, i}",
+    		source: "(53:2) {#each as as a, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (76:12) {#if author}
+    // (64:10) {#if author}
     function create_if_block(ctx) {
     	let span;
     	let t0;
@@ -1109,7 +1100,7 @@ var app = (function () {
     			t1 = text(/*author*/ ctx[3]);
     			t2 = text(")");
     			attr_dev(span, "class", "author");
-    			add_location(span, file$1, 75, 24, 1698);
+    			add_location(span, file$1, 63, 22, 1338);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -1129,7 +1120,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(76:12) {#if author}",
+    		source: "(64:10) {#if author}",
     		ctx
     	});
 
@@ -1144,7 +1135,7 @@ var app = (function () {
     	let div0;
     	let t2;
     	let div1;
-    	let h3;
+    	let p;
     	let t3;
     	let t4;
     	let each_value = /*as*/ ctx[2];
@@ -1171,19 +1162,19 @@ var app = (function () {
 
     			t2 = space();
     			div1 = element("div");
-    			h3 = element("h3");
+    			p = element("p");
     			t3 = text(/*qs*/ ctx[1]);
     			t4 = space();
     			if (if_block) if_block.c();
-    			add_location(h1, file$1, 61, 1, 1281);
+    			add_location(h1, file$1, 49, 0, 967);
     			attr_dev(div0, "class", "multi");
-    			add_location(div0, file$1, 63, 2, 1328);
-    			add_location(h3, file$1, 75, 3, 1677);
+    			add_location(div0, file$1, 51, 1, 1012);
+    			add_location(p, file$1, 63, 2, 1318);
     			attr_dev(div1, "class", "qs sticky");
-    			add_location(div1, file$1, 74, 2, 1650);
+    			add_location(div1, file$1, 62, 1, 1292);
     			attr_dev(div2, "id", /*id*/ ctx[4]);
     			attr_dev(div2, "class", "slide");
-    			add_location(div2, file$1, 62, 1, 1298);
+    			add_location(div2, file$1, 50, 0, 983);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1201,10 +1192,10 @@ var app = (function () {
 
     			append_dev(div2, t2);
     			append_dev(div2, div1);
-    			append_dev(div1, h3);
-    			append_dev(h3, t3);
-    			append_dev(h3, t4);
-    			if (if_block) if_block.m(h3, null);
+    			append_dev(div1, p);
+    			append_dev(p, t3);
+    			append_dev(p, t4);
+    			if (if_block) if_block.m(p, null);
     		},
     		p: function update(ctx, [dirty]) {
     			if (dirty & /*name*/ 1) set_data_dev(t0, /*name*/ ctx[0]);
@@ -1241,7 +1232,7 @@ var app = (function () {
     				} else {
     					if_block = create_if_block(ctx);
     					if_block.c();
-    					if_block.m(h3, null);
+    					if_block.m(p, null);
     				}
     			} else if (if_block) {
     				if_block.d(1);
@@ -1286,20 +1277,6 @@ var app = (function () {
     	});
 
     	function _focusFig(e) {
-    		let el = e;
-
-    		if (e.currentTarget) {
-    			/* e.cancelBubble = true;
-    e.preventDefault(); */
-    			el = e.currentTarget;
-    		}
-
-    		_blurEls();
-    		el.querySelector(".selectable").style.outline = getComputedStyle(document.documentElement).getPropertyValue("--outline-selected");
-    		selection = el;
-    	}
-
-    	function _focusTxt(e) {
     		let el = e;
 
     		if (e.currentTarget) {
@@ -1358,7 +1335,6 @@ var app = (function () {
     		author,
     		id,
     		_focusFig,
-    		_focusTxt,
     		_blurEls,
     		_dispatch
     	});
@@ -1462,12 +1438,12 @@ var app = (function () {
 
     function get_each_context$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[12] = list[i];
-    	child_ctx[14] = i;
+    	child_ctx[11] = list[i];
+    	child_ctx[13] = i;
     	return child_ctx;
     }
 
-    // (81:1) {:else}
+    // (69:1) {:else}
     function create_else_block_1(ctx) {
     	let div0;
     	let figure;
@@ -1497,17 +1473,17 @@ var app = (function () {
     			div1 = element("div");
     			input = element("input");
     			attr_dev(label, "for", "qsolo");
-    			add_location(label, file$2, 83, 3, 1790);
-    			add_location(figure, file$2, 82, 2, 1757);
+    			add_location(label, file$2, 71, 3, 1461);
+    			add_location(figure, file$2, 70, 2, 1449);
     			attr_dev(div0, "class", "solo");
-    			add_location(div0, file$2, 81, 1, 1736);
+    			add_location(div0, file$2, 69, 1, 1428);
     			attr_dev(input, "id", "qsolo");
     			attr_dev(input, "type", "text");
     			attr_dev(input, "name", "as");
     			input.value = /*as*/ ctx[2];
-    			add_location(input, file$2, 93, 2, 2003);
+    			add_location(input, file$2, 81, 2, 1695);
     			attr_dev(div1, "class", "sticky free");
-    			add_location(div1, file$2, 92, 1, 1975);
+    			add_location(div1, file$2, 80, 1, 1667);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div0, anchor);
@@ -1517,7 +1493,7 @@ var app = (function () {
     			insert_dev(target, t, anchor);
     			insert_dev(target, div1, anchor);
     			append_dev(div1, input);
-    			dispose = listen_dev(figure, "click", /*_focusFig*/ ctx[4], false, false, false);
+    			dispose = listen_dev(label, "click", /*_focusFig*/ ctx[4], false, false, false);
     		},
     		p: function update(ctx, dirty) {
     			if (current_block_type === (current_block_type = select_block_type_2(ctx, dirty)) && if_block) {
@@ -1549,16 +1525,16 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(81:1) {:else}",
+    		source: "(69:1) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (64:1) {#if Array.isArray(qs)}
+    // (52:1) {#if Array.isArray(qs)}
     function create_if_block$1(ctx) {
-    	let each_1_anchor;
+    	let div;
     	let each_value = /*qs*/ ctx[1];
     	validate_each_argument(each_value);
     	let each_blocks = [];
@@ -1569,18 +1545,21 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
+    			div = element("div");
+
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
-    			each_1_anchor = empty();
+    			attr_dev(div, "class", "multi");
+    			add_location(div, file$2, 52, 1, 1010);
     		},
     		m: function mount(target, anchor) {
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].m(target, anchor);
-    			}
+    			insert_dev(target, div, anchor);
 
-    			insert_dev(target, each_1_anchor, anchor);
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(div, null);
+    			}
     		},
     		p: function update(ctx, dirty) {
     			if (dirty & /*as, _focusFig, qs, String*/ 22) {
@@ -1596,7 +1575,7 @@ var app = (function () {
     					} else {
     						each_blocks[i] = create_each_block$2(child_ctx);
     						each_blocks[i].c();
-    						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+    						each_blocks[i].m(div, null);
     					}
     				}
 
@@ -1608,8 +1587,8 @@ var app = (function () {
     			}
     		},
     		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
     			destroy_each(each_blocks, detaching);
-    			if (detaching) detach_dev(each_1_anchor);
     		}
     	};
 
@@ -1617,14 +1596,14 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(64:1) {#if Array.isArray(qs)}",
+    		source: "(52:1) {#if Array.isArray(qs)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (87:4) {:else}
+    // (75:4) {:else}
     function create_else_block_2(ctx) {
     	let p;
     	let t;
@@ -1634,7 +1613,7 @@ var app = (function () {
     			p = element("p");
     			t = text(/*qs*/ ctx[1]);
     			attr_dev(p, "class", "selectable");
-    			add_location(p, file$2, 87, 4, 1901);
+    			add_location(p, file$2, 75, 4, 1593);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -1652,14 +1631,14 @@ var app = (function () {
     		block,
     		id: create_else_block_2.name,
     		type: "else",
-    		source: "(87:4) {:else}",
+    		source: "(75:4) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (85:4) {#if qs.startsWith('/')}
+    // (73:4) {#if qs.startsWith('/')}
     function create_if_block_2(ctx) {
     	let img;
     	let img_src_value;
@@ -1670,7 +1649,7 @@ var app = (function () {
     			attr_dev(img, "class", "selectable");
     			if (img.src !== (img_src_value = /*qs*/ ctx[1])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "q");
-    			add_location(img, file$2, 85, 4, 1843);
+    			add_location(img, file$2, 73, 4, 1535);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -1689,17 +1668,17 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(85:4) {#if qs.startsWith('/')}",
+    		source: "(73:4) {#if qs.startsWith('/')}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (71:4) {:else}
+    // (59:4) {:else}
     function create_else_block$1(ctx) {
     	let p;
-    	let t_value = /*q*/ ctx[12] + "";
+    	let t_value = /*q*/ ctx[11] + "";
     	let t;
 
     	const block = {
@@ -1707,14 +1686,14 @@ var app = (function () {
     			p = element("p");
     			t = text(t_value);
     			attr_dev(p, "class", "selectable");
-    			add_location(p, file$2, 71, 4, 1545);
+    			add_location(p, file$2, 59, 4, 1234);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
     			append_dev(p, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*qs*/ 2 && t_value !== (t_value = /*q*/ ctx[12] + "")) set_data_dev(t, t_value);
+    			if (dirty & /*qs*/ 2 && t_value !== (t_value = /*q*/ ctx[11] + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(p);
@@ -1725,14 +1704,14 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(71:4) {:else}",
+    		source: "(59:4) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (69:4) {#if q.startsWith('/')}
+    // (57:4) {#if q.startsWith('/')}
     function create_if_block_1$1(ctx) {
     	let img;
     	let img_src_value;
@@ -1742,15 +1721,15 @@ var app = (function () {
     		c: function create() {
     			img = element("img");
     			attr_dev(img, "class", "selectable");
-    			if (img.src !== (img_src_value = /*q*/ ctx[12])) attr_dev(img, "src", img_src_value);
-    			attr_dev(img, "alt", img_alt_value = String.fromCharCode(97 + /*i*/ ctx[14]));
-    			add_location(img, file$2, 69, 4, 1460);
+    			if (img.src !== (img_src_value = /*q*/ ctx[11])) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", img_alt_value = String.fromCharCode(97 + /*i*/ ctx[13]));
+    			add_location(img, file$2, 57, 4, 1149);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*qs*/ 2 && img.src !== (img_src_value = /*q*/ ctx[12])) {
+    			if (dirty & /*qs*/ 2 && img.src !== (img_src_value = /*q*/ ctx[11])) {
     				attr_dev(img, "src", img_src_value);
     			}
     		},
@@ -1763,22 +1742,21 @@ var app = (function () {
     		block,
     		id: create_if_block_1$1.name,
     		type: "if",
-    		source: "(69:4) {#if q.startsWith('/')}",
+    		source: "(57:4) {#if q.startsWith('/')}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (65:1) {#each qs as q, i}
+    // (54:1) {#each qs as q, i}
     function create_each_block$2(ctx) {
-    	let div1;
     	let figure;
     	let label;
     	let show_if;
     	let label_for_value;
     	let t0;
-    	let div0;
+    	let div;
     	let input;
     	let input_id_value;
     	let input_name_value;
@@ -1787,7 +1765,7 @@ var app = (function () {
     	let dispose;
 
     	function select_block_type_1(ctx, dirty) {
-    		if (show_if == null || dirty & /*qs*/ 2) show_if = !!/*q*/ ctx[12].startsWith("/");
+    		if (show_if == null || dirty & /*qs*/ 2) show_if = !!/*q*/ ctx[11].startsWith("/");
     		if (show_if) return create_if_block_1$1;
     		return create_else_block$1;
     	}
@@ -1797,38 +1775,34 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			div1 = element("div");
     			figure = element("figure");
     			label = element("label");
     			if_block.c();
     			t0 = space();
-    			div0 = element("div");
+    			div = element("div");
     			input = element("input");
     			t1 = space();
-    			attr_dev(label, "for", label_for_value = "q" + /*i*/ ctx[14]);
-    			add_location(label, file$2, 67, 3, 1409);
-    			attr_dev(figure, "class", "abcd");
-    			add_location(figure, file$2, 66, 2, 1363);
-    			attr_dev(input, "id", input_id_value = "q" + /*i*/ ctx[14]);
+    			attr_dev(label, "for", label_for_value = "q" + /*i*/ ctx[13]);
+    			add_location(label, file$2, 55, 3, 1077);
+    			attr_dev(input, "id", input_id_value = "q" + /*i*/ ctx[13]);
     			attr_dev(input, "type", "text");
-    			attr_dev(input, "name", input_name_value = "a[" + /*i*/ ctx[14] + "]");
-    			input.value = input_value_value = /*as*/ ctx[2][/*i*/ ctx[14]];
-    			add_location(input, file$2, 76, 3, 1640);
-    			attr_dev(div0, "class", "sticky free");
-    			add_location(div0, file$2, 75, 2, 1611);
-    			attr_dev(div1, "class", "solo");
-    			add_location(div1, file$2, 65, 1, 1342);
+    			attr_dev(input, "name", input_name_value = "a[" + /*i*/ ctx[13] + "]");
+    			input.value = input_value_value = /*as*/ ctx[2][/*i*/ ctx[13]];
+    			add_location(input, file$2, 63, 4, 1319);
+    			attr_dev(div, "class", "sticky free");
+    			add_location(div, file$2, 62, 3, 1289);
+    			attr_dev(figure, "class", "abcd");
+    			add_location(figure, file$2, 54, 2, 1052);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div1, anchor);
-    			append_dev(div1, figure);
+    			insert_dev(target, figure, anchor);
     			append_dev(figure, label);
     			if_block.m(label, null);
-    			append_dev(div1, t0);
-    			append_dev(div1, div0);
-    			append_dev(div0, input);
-    			append_dev(div1, t1);
-    			dispose = listen_dev(figure, "click", /*_focusFig*/ ctx[4], false, false, false);
+    			append_dev(figure, t0);
+    			append_dev(figure, div);
+    			append_dev(div, input);
+    			append_dev(figure, t1);
+    			dispose = listen_dev(label, "click", /*_focusFig*/ ctx[4], false, false, false);
     		},
     		p: function update(ctx, dirty) {
     			if (current_block_type === (current_block_type = select_block_type_1(ctx, dirty)) && if_block) {
@@ -1843,12 +1817,12 @@ var app = (function () {
     				}
     			}
 
-    			if (dirty & /*as*/ 4 && input_value_value !== (input_value_value = /*as*/ ctx[2][/*i*/ ctx[14]]) && input.value !== input_value_value) {
+    			if (dirty & /*as*/ 4 && input_value_value !== (input_value_value = /*as*/ ctx[2][/*i*/ ctx[13]]) && input.value !== input_value_value) {
     				prop_dev(input, "value", input_value_value);
     			}
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div1);
+    			if (detaching) detach_dev(figure);
     			if_block.d();
     			dispose();
     		}
@@ -1858,7 +1832,7 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(65:1) {#each qs as q, i}",
+    		source: "(54:1) {#each qs as q, i}",
     		ctx
     	});
 
@@ -1888,10 +1862,10 @@ var app = (function () {
     			t1 = space();
     			div = element("div");
     			if_block.c();
-    			add_location(h1, file$2, 61, 0, 1252);
+    			add_location(h1, file$2, 49, 0, 940);
     			attr_dev(div, "id", /*id*/ ctx[3]);
     			attr_dev(div, "class", "slide");
-    			add_location(div, file$2, 62, 0, 1268);
+    			add_location(div, file$2, 50, 0, 956);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1968,20 +1942,6 @@ var app = (function () {
     		selection = el;
     	}
 
-    	function _focusTxt(e) {
-    		let el = e;
-
-    		if (e.currentTarget) {
-    			/* e.cancelBubble = true;
-    e.preventDefault(); */
-    			el = e.currentTarget;
-    		}
-
-    		_blurEls();
-    		el.querySelector(".selectable").style.outline = getComputedStyle(document.documentElement).getPropertyValue("--outline-selected");
-    		selection = el;
-    	}
-
     	function _blurEls() {
     		let old = slide.querySelectorAll(".selectable");
     		for (let o of old) o.style.outline = "";
@@ -2027,7 +1987,6 @@ var app = (function () {
     		author,
     		id,
     		_focusFig,
-    		_focusTxt,
     		_blurEls,
     		_dispatch
     	});
@@ -2394,7 +2353,7 @@ var app = (function () {
     				"/images/nature.jpeg",
     				"/images/people.jpeg"
     			],
-    			a: ["PEOPLE", "NATURE", "ANIMALS", "TRANSPORT", "CITY"]
+    			a: ["People", "Nature", "Animals", "Transport", "City"]
     		},
     		{
     			idx: 2,
