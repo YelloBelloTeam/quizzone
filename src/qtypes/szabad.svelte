@@ -63,13 +63,13 @@
 <div id={id} class="slide">
 	{#if Array.isArray(qs)}
 	{#each qs as q, i}
-	<div class="multi">
+	<div class="solo">
 		<figure class="abcd" on:click={_focusFig}>
 			<label for="q{i}">
 				{#if q.startsWith('/')}
 				<img class="selectable" src={q} alt="{String.fromCharCode(97 + i)}">
 				{:else}
-				<p class="selectable">{String.fromCharCode(65 + i)}) {q}</p>
+				<p class="selectable">{q}</p>
 				{/if}
 			</label>
 		</figure>

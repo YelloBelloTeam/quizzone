@@ -1497,17 +1497,17 @@ var app = (function () {
     			div1 = element("div");
     			input = element("input");
     			attr_dev(label, "for", "qsolo");
-    			add_location(label, file$2, 83, 3, 1822);
-    			add_location(figure, file$2, 82, 2, 1789);
+    			add_location(label, file$2, 83, 3, 1790);
+    			add_location(figure, file$2, 82, 2, 1757);
     			attr_dev(div0, "class", "solo");
-    			add_location(div0, file$2, 81, 1, 1768);
+    			add_location(div0, file$2, 81, 1, 1736);
     			attr_dev(input, "id", "qsolo");
     			attr_dev(input, "type", "text");
     			attr_dev(input, "name", "as");
     			input.value = /*as*/ ctx[2];
-    			add_location(input, file$2, 93, 2, 2035);
+    			add_location(input, file$2, 93, 2, 2003);
     			attr_dev(div1, "class", "sticky free");
-    			add_location(div1, file$2, 92, 1, 2007);
+    			add_location(div1, file$2, 92, 1, 1975);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div0, anchor);
@@ -1634,7 +1634,7 @@ var app = (function () {
     			p = element("p");
     			t = text(/*qs*/ ctx[1]);
     			attr_dev(p, "class", "selectable");
-    			add_location(p, file$2, 87, 4, 1933);
+    			add_location(p, file$2, 87, 4, 1901);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -1670,7 +1670,7 @@ var app = (function () {
     			attr_dev(img, "class", "selectable");
     			if (img.src !== (img_src_value = /*qs*/ ctx[1])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "q");
-    			add_location(img, file$2, 85, 4, 1875);
+    			add_location(img, file$2, 85, 4, 1843);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -1699,29 +1699,22 @@ var app = (function () {
     // (71:4) {:else}
     function create_else_block$1(ctx) {
     	let p;
-    	let t0_value = String.fromCharCode(65 + /*i*/ ctx[14]) + "";
-    	let t0;
-    	let t1;
-    	let t2_value = /*q*/ ctx[12] + "";
-    	let t2;
+    	let t_value = /*q*/ ctx[12] + "";
+    	let t;
 
     	const block = {
     		c: function create() {
     			p = element("p");
-    			t0 = text(t0_value);
-    			t1 = text(") ");
-    			t2 = text(t2_value);
+    			t = text(t_value);
     			attr_dev(p, "class", "selectable");
-    			add_location(p, file$2, 71, 4, 1546);
+    			add_location(p, file$2, 71, 4, 1545);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
-    			append_dev(p, t0);
-    			append_dev(p, t1);
-    			append_dev(p, t2);
+    			append_dev(p, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*qs*/ 2 && t2_value !== (t2_value = /*q*/ ctx[12] + "")) set_data_dev(t2, t2_value);
+    			if (dirty & /*qs*/ 2 && t_value !== (t_value = /*q*/ ctx[12] + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(p);
@@ -1751,7 +1744,7 @@ var app = (function () {
     			attr_dev(img, "class", "selectable");
     			if (img.src !== (img_src_value = /*q*/ ctx[12])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = String.fromCharCode(97 + /*i*/ ctx[14]));
-    			add_location(img, file$2, 69, 4, 1461);
+    			add_location(img, file$2, 69, 4, 1460);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -1813,17 +1806,17 @@ var app = (function () {
     			input = element("input");
     			t1 = space();
     			attr_dev(label, "for", label_for_value = "q" + /*i*/ ctx[14]);
-    			add_location(label, file$2, 67, 3, 1410);
+    			add_location(label, file$2, 67, 3, 1409);
     			attr_dev(figure, "class", "abcd");
-    			add_location(figure, file$2, 66, 2, 1364);
+    			add_location(figure, file$2, 66, 2, 1363);
     			attr_dev(input, "id", input_id_value = "q" + /*i*/ ctx[14]);
     			attr_dev(input, "type", "text");
     			attr_dev(input, "name", input_name_value = "a[" + /*i*/ ctx[14] + "]");
     			input.value = input_value_value = /*as*/ ctx[2][/*i*/ ctx[14]];
-    			add_location(input, file$2, 76, 3, 1672);
+    			add_location(input, file$2, 76, 3, 1640);
     			attr_dev(div0, "class", "sticky free");
-    			add_location(div0, file$2, 75, 2, 1643);
-    			attr_dev(div1, "class", "multi");
+    			add_location(div0, file$2, 75, 2, 1611);
+    			attr_dev(div1, "class", "solo");
     			add_location(div1, file$2, 65, 1, 1342);
     		},
     		m: function mount(target, anchor) {

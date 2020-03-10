@@ -30,10 +30,10 @@ header, footer {
 	/* position: sticky; */
 	padding: 0 1rem;
 }
-footer {
-	/* height: 10%; */
-}
 /* 
+footer {
+	height: 10%;
+}
 header {
 	scroll-snap-align: start;
 }
@@ -52,7 +52,7 @@ main {
 }
 main img {
 	outline: var(--outline);
-	outline-offset: -2px;
+	/* outline-offset: -2px; */
 	display: block;
 	max-width: 100%;
 }
@@ -110,6 +110,13 @@ main figure {
 	outline: var(--outline);
   /* outline-offset: 8px; */
 }
+p.selectable {
+    padding: 1rem;
+    margin: 1.25rem 0;
+}
+p.selectable::first-letter {
+    padding-left: 1.5rem;
+}
 
 .sticky {
 	position: sticky;
@@ -161,6 +168,7 @@ main figure {
 
 .abcd {
 	counter-increment: qnum;
+	position: relative;
 }
 .abcd::after {
 	content: counters(qnum, '.', upper-alpha);
