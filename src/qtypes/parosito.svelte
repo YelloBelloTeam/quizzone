@@ -1,7 +1,8 @@
 <script>
 	import { onMount } from 'svelte'
 	import { count } from '../stores.js';
-	// export let status;
+
+	import { _idify } from '../utils.js';
 
 	var	selection,
 			slide
@@ -26,12 +27,12 @@
 			el = e.currentTarget
 		}
 		_blurEls()
-		el.querySelector('img').style.outline = getComputedStyle(document.documentElement).getPropertyValue('--outline-selected')
+		el.querySelector('.selectable').style.outline = getComputedStyle(document.documentElement).getPropertyValue('--outline-selected')
 		selection = el
 	}
 
 	function _blurEls() {
-		let old = slide.querySelectorAll('img')
+		let old = slide.querySelectorAll('.selectable')
 		for (let o of old) o.style.outline = ''
 		selection = null
 	}
@@ -96,7 +97,7 @@
     selection.appendChild(el)
     // console.log(selection.querySelector('#' + id + ' img').alt)
     let c = count
-    c[selection.querySelector('img').alt] = el.id
+    c[selection.querySelector('.selectable').alt] = el.id
     count.set(c)
   }
 
@@ -107,13 +108,17 @@
 	<div class="multi" on:click|self={_blurFig}>
 		{#each qs as q, i}
 		<figure class="abcd" on:click={_focusFig}>
-			<img class="selectable" src={q} alt="q{i}">
+			{#if q.startsWith('/')}
+			<img class="selectable" src={q} alt="{String.fromCharCode(65 + i)}">
+			{:else}
+			<p class="selectable" alt="{String.fromCharCode(65 + i)}">{q}</p>
+			{/if}
 		</figure>
 		{/each}
 	</div>
 	<div class="multi sticky">
 		{#each as as a, i}
-		<figcaption id={a} draggable="true" style="order:{i}" on:click={_moveTxt}>{a}</figcaption>
+		<figcaption id={_idify(a)} draggable="true" style="order:{i}" on:click={_moveTxt}>{a}</figcaption>
 		{/each}
 	</div>
 </div>

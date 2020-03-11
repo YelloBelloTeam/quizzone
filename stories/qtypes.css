@@ -1,0 +1,23 @@
+html {
+	--theme-color: orange;
+	--header-bg: white;
+	--footer-bg: var(--header-bg);
+	--main-bg: dimgrey;
+	--main-txt: white;
+	--outline: solid 2px white;
+	--outline-selected: dashed 4px white;
+}
+#root {
+	/* min-height: 100vh; */
+	background: var(--main-bg);
+	color: var(--main-txt);
+	/* padding: 4rem 0 4rem; */
+}
+#root h1 {
+	color: var(--theme-color);
+	text-transform: uppercase;
+	font-weight: 200;
+	text-align: center;
+	outline-style: dotted;
+	outline-offset: -10px;
+}

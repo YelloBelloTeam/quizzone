@@ -5,8 +5,8 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public --port 5050",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook -s ./public -p 6006",
+    "build-storybook": "build-storybook -c .storybook -o .sbout"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
