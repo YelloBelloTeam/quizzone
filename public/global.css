@@ -220,15 +220,15 @@ p.selectable {
 	} */
 }
 
+
 /* párosítás után */
-.multi figure figcaption {
-	/* position: absolute; */
+figure figcaption {
+	position: absolute;
 	margin: -3rem 0 0 -.25rem;
 	width: fit-content;
 	max-width: unset;
 	bottom: 1rem;
 }
-
 
 
 
