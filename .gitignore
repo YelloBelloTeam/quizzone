@@ -109,3 +109,7 @@ quizzone.code-workspace
 
 #storybook
 .sbout/
+
+.DS_Store
+public/.DS_Store
+public/build/

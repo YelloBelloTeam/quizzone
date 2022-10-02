@@ -1,4 +1,2 @@
-.multi.svelte-nrgqv3 figure figcaption.svelte-nrgqv3{margin:-3rem 0 0 -.25rem;width:fit-content;max-width:unset;bottom:1rem}
-figure.svelte-1hsf6ip{position:relative;margin:1%;width:31%}figure.svelte-1hsf6ip::after{counter-increment:qnum;content:counters(qnum, '.', upper-alpha);position:absolute;left:-.25rem;top:1rem;outline:solid 2px white;width:2rem;text-align:center;background:var(--theme-color, orange);color:white}@media screen and (orientation:portrait){figure.svelte-1hsf6ip{margin:1%;width:46%}}figure.svelte-1hsf6ip figcaption{position:absolute;margin:0 -.25rem;width:fit-content;max-width:unset;bottom:1rem}
 
 /*# sourceMappingURL=bundle.css.map */
